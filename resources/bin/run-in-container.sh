@@ -100,21 +100,19 @@ function generate_product_conf {
     return
   fi
 
-  
-    if [ -e ${APP_HOME}/default-conf/xl-deploy.conf.template ]; then
-      echo "Generate configuration file xl-deploy.conf from environment parameters"
-      sed -e "s#\${XL_DB_DRIVER}#${XL_DB_DRIVER}#g" \
-          -e "s#\${XL_CLUSTER_MODE}#${XL_CLUSTER_MODE}#g" \
-          -e "s#\${XL_DB_URL}#${XL_DB_URL}#g" \
-          -e "s#\${XL_DB_USERNAME}#${XL_DB_USERNAME}#g" \
-          -e "s#\${XL_DB_PASSWORD}#${XL_DB_PASSWORD}#g" \
-          -e "s#\${XL_METRICS_ENABLED}#${XL_METRICS_ENABLED}#g" \
-          -e "s#\${XLD_IN_PROCESS}#${XLD_IN_PROCESS}#g" \
-          -e "s#\${HOSTNAME_SUFFIX}#${HOSTNAME_SUFFIX}#g" \
-          -e "s#\${XL_LICENSE_KIND}#${XL_LICENSE_KIND}#g" \
-      ${APP_HOME}/default-conf/xl-deploy.conf.template > ${APP_HOME}/conf/xl-deploy.conf
-    fi
-  
+  if [ -e ${APP_HOME}/default-conf/xl-deploy.conf.template ]; then
+    echo "Generate configuration file xl-deploy.conf from environment parameters"
+    sed -e "s#\${XL_DB_DRIVER}#${XL_DB_DRIVER}#g" \
+        -e "s#\${XL_CLUSTER_MODE}#${XL_CLUSTER_MODE}#g" \
+        -e "s#\${XL_DB_URL}#${XL_DB_URL}#g" \
+        -e "s#\${XL_DB_USERNAME}#${XL_DB_USERNAME}#g" \
+        -e "s#\${XL_DB_PASSWORD}#${XL_DB_PASSWORD}#g" \
+        -e "s#\${XL_METRICS_ENABLED}#${XL_METRICS_ENABLED}#g" \
+        -e "s#\${XLD_IN_PROCESS}#${XLD_IN_PROCESS}#g" \
+        -e "s#\${HOSTNAME_SUFFIX}#${HOSTNAME_SUFFIX}#g" \
+        -e "s#\${XL_LICENSE_KIND}#${XL_LICENSE_KIND}#g" \
+    ${APP_HOME}/default-conf/xl-deploy.conf.template > ${APP_HOME}/conf/xl-deploy.conf
+  fi
 }
 
 function check_force_upgrade {

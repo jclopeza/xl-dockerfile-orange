@@ -1,15 +1,15 @@
 #!/usr/bin/gawk -f
 
 # Add the node-conf directory to the start of the classpath
-/^wrapper.java.classpath.1=/ {
+/^wrapper.java.classpath.4=/ {
   print "wrapper.java.classpath.1=node-conf";
 }
 
 # Move the other classpath entries up by one
-match($0, /^(wrapper.java.classpath).([0-9]+)=(.*)$/, a) {
-  printf("%s.%d=%s\n", a[1], (a[2]+1), a[3]);
-  next;
-}
+# match($0, /^(wrapper.java.classpath).([0-9]+)=(.*)$/, a) {
+#   printf("%s.%d=%s\n", a[1], (a[2]+1), a[3]);
+#   next;
+# }
 
 # Count the number of additional JVM arguments
 /^wrapper.java.additional.*/ {
