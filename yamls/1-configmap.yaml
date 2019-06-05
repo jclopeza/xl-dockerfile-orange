@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: xld-cm
+data:
+  ADMIN_PASSWORD: orange
+  REPOSITORY_KEYSTORE_PASSPHRASE: orange
+  XL_DB_URL: jdbc:postgresql://10.0.2.2/orange
+  XL_DB_USERNAME: orange
+  XL_DB_PASSWORD: orange

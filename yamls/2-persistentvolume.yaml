@@ -1,0 +1,111 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-ext
+spec:
+  storageClassName: manual-ext
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/ext"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-conf
+spec:
+  storageClassName: manual-conf
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/conf"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-hotfix-lib
+spec:
+  storageClassName: manual-hotfix-lib
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/hotfix/lib"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-hotfix-plugins
+spec:
+  storageClassName: manual-hotfix-plugins
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/hotfix/plugins"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-export
+spec:
+  storageClassName: manual-export
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/export"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-plugins
+spec:
+  storageClassName: manual-plugins
+  capacity:
+    storage: 2000Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/plugins"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-repository
+spec:
+  storageClassName: manual-repository
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/repository"
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: xld-pv-work
+spec:
+  storageClassName: manual-work
+  capacity:
+    storage: 60Mi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: 10.0.2.2
+    path: "/srv/nfs/kubedata/work"

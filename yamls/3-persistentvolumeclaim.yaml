@@ -1,0 +1,95 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-ext
+spec:
+  storageClassName: manual-ext
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-conf
+spec:
+  storageClassName: manual-conf
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-hotfix-lib
+spec:
+  storageClassName: manual-hotfix-lib
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-hotfix-plugins
+spec:
+  storageClassName: manual-hotfix-plugins
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-export
+spec:
+  storageClassName: manual-export
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-plugins
+spec:
+  storageClassName: manual-plugins
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 1950Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-repository
+spec:
+  storageClassName: manual-repository
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: xld-pvc-work
+spec:
+  storageClassName: manual-work
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi

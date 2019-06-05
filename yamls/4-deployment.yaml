@@ -1,0 +1,71 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xld-deploy
+  labels:
+    app: xld
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xld
+      release: 8.6.2
+  template:
+    metadata:
+      labels:
+        app: xld
+        release: 8.6.2
+    spec:
+      containers:
+      - name: xld
+        image: lyhsoft/xl-deploy:8.6.2
+        imagePullPolicy: Always
+        ports:
+        - name: xld-https
+          containerPort: 4517
+          protocol: TCP
+        volumeMounts:
+        - name: xld-ext
+          mountPath: /opt/xebialabs/xl-deploy-server/ext
+        - name: xld-conf
+          mountPath: /opt/xebialabs/xl-deploy-server/conf
+        - name: xld-hotfix-lib
+          mountPath: /opt/xebialabs/xl-deploy-server/hotfix/lib
+        - name: xld-hotfix-plugins
+          mountPath: /opt/xebialabs/xl-deploy-server/hotfix/plugins
+        - name: xld-export
+          mountPath: /opt/xebialabs/xl-deploy-server/export
+        - name: xld-plugins
+          mountPath: /opt/xebialabs/xl-deploy-server/plugins
+        - name: xld-repository
+          mountPath: /opt/xebialabs/xl-deploy-server/repository
+        - name: xld-work
+          mountPath: /opt/xebialabs/xl-deploy-server/work
+        envFrom:
+        - configMapRef:
+            name: xld-cm
+      volumes:
+      - name: xld-ext
+        persistentVolumeClaim:
+          claimName: xld-pvc-ext
+      - name: xld-conf
+        persistentVolumeClaim:
+          claimName: xld-pvc-conf
+      - name: xld-hotfix-lib
+        persistentVolumeClaim:
+          claimName: xld-pvc-hotfix-lib
+      - name: xld-hotfix-plugins
+        persistentVolumeClaim:
+          claimName: xld-pvc-hotfix-plugins
+      - name: xld-export
+        persistentVolumeClaim:
+          claimName: xld-pvc-export
+      - name: xld-plugins
+        persistentVolumeClaim:
+          claimName: xld-pvc-plugins
+      - name: xld-repository
+        persistentVolumeClaim:
+          claimName: xld-pvc-repository
+      - name: xld-work
+        persistentVolumeClaim:
+          claimName: xld-pvc-work
